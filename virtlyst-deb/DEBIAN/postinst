@@ -24,8 +24,25 @@ then
     adduser --quiet virtlyst libvirt
 fi
 
-# Set correct owner
-chown virtlyst:virtlyst -R /usr/local/var/virtlyst
+# Create config
+cat << EOF > /etc/virtlyst.conf
+[wsgi]
+master = true
+threads = auto
+http-socket = :3000
+application = /usr/local/lib/libVirtlyst.so
+chdir2 = /usr/local/var/virtlyst
+static-map = /static=/usr/local/var/virtlyst/root/static
+
+[Cutelyst]
+production = true
+DatabasePath = /usr/local/var/virtlyst/virtlyst.sqlite
+TemplatePath = /usr/local/var/virtlyst/root/src
+
+[Rules]
+cutelyst.* = true
+virtlyst.* = true
+EOF
 
 # Add the new lib paths to ld config
 cat << EOF > /etc/ld.so.conf.d/virtlyst.conf
@@ -33,3 +50,34 @@ cat << EOF > /etc/ld.so.conf.d/virtlyst.conf
 /usr/local/lib/x86_64-linux-gnu
 /usr/local/lib/cutelyst2-plugins
 EOF
+
+# Activate new lib paths
+ldconfig
+
+# create systemd unit file
+cat << EOF > /etc/systemd/system/virtlyst.service
+[Unit]
+After=network.target libvirtd.service
+Description=Web interface to manage virtual machines with libvirt
+
+[Service]
+Type=notify
+NotifyAccess=all
+DynamicUser=yes
+User=virtlyst
+Restart=always
+ExecStart=/usr/local/bin/cutelyst-wsgi2 --ini /etc/virtlyst.conf
+StateDirectory=virtlyst
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# Load unit file
+systemctl daemon-reload
+
+# Set correct owner
+chown virtlyst:virtlyst -R /usr/local/var/virtlyst
+chown virtlyst:virtlyst /etc/virtlyst.conf
+
+

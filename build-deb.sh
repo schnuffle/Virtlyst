@@ -14,8 +14,7 @@ cp -a ./tmp/local/lib virtlyst-deb/usr/local/
 cp -a ./tmp/local/bin virtlyst-deb/usr/local/
 cp -a ./tmp/local/man virtlyst-deb/usr/local/
 cp -a ./tmp/local/share virtlyst-deb/usr/local/
-cp -a ./tmp/local/src/Virtlyst/root virtlyst-deb/usr/local/var/virtlist
-#cp -a ~/src/Virtlyst/usr/local/src/Virtlyst/config.ini ../../etc/
+cp -a ./tmp/local/src/Virtlyst/root virtlyst-deb/usr/local/var/virtlyst/
 cp -a ./tmp/local/src/Virtlyst/src/libVirtlyst.so  virtlyst-deb/usr/local/lib/
 
 dpkg --build virtlyst-deb
