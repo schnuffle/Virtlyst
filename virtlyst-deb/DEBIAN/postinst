@@ -36,7 +36,8 @@ static-map = /static=/usr/local/var/virtlyst/root/static
 
 [Cutelyst]
 production = true
-DatabasePath = /usr/local/var/virtlyst/virtlyst.sqlite
+DatabasePath = /usr/local/var/virtlyst/virtlyst.sqlite 
+               /usr/local/var/virtlyst/virt.sqlite
 TemplatePath = /usr/local/var/virtlyst/root/src
 
 [Rules]
@@ -63,7 +64,7 @@ Description=Web interface to manage virtual machines with libvirt
 [Service]
 Type=notify
 NotifyAccess=all
-DynamicUser=yes
+#DynamicUser=yes
 User=virtlyst
 Restart=always
 ExecStart=/usr/local/bin/cutelyst-wsgi2 --ini /etc/virtlyst.conf
@@ -79,5 +80,5 @@ systemctl daemon-reload
 # Set correct owner
 chown virtlyst:virtlyst -R /usr/local/var/virtlyst
 chown virtlyst:virtlyst /etc/virtlyst.conf
-
+chmod 770 /usr/local/var/virtlyst
 
