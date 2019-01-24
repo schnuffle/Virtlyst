@@ -1,0 +1,29 @@
+#!/bin/sh
+#
+# Post-installation script for the Virtlyst package for Ubuntu  GNU/Linux
+#
+#
+
+set -e
+
+# We generate several files during the postinst, and we don't want
+#       them to be readable only by root.
+umask 022
+
+# add the virtlyst group
+if ! getent group virtlyst >/dev/null;
+then
+        addgroup --system virtlyst
+fi
+# add the virtlyst user
+if ! getent passwd virtlyst >/dev/null; 
+then
+    adduser --disabled-password  --quiet --system \
+        --home /usr/local/var/virtlyst --no-create-home\
+        --gecos "Virtlyst" --group virtlyst
+    adduser --quiet virtlyst libvirt
+fi
+
+# Set correct owner
+chown virtlyst:virtlyst -R /usr/local/var/virtlyst
+

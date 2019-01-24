@@ -1,0 +1,6 @@
+Package: virtlyst-ubuntu18.04
+Version: 1.2.0
+Maintainer: schnuffle@github.com
+Architecture: amd64
+Description: virtlyst native extracted from a docker image
+Depends: libgrantlee-templates5 (>= 5.1.0-2)
