@@ -1,3 +1,4 @@
 *.deb
 tmp/
 virtlyst-deb/usr/
+>>>>>>> Added file to build debian package
