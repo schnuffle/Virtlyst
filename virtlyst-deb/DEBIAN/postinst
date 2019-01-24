@@ -27,3 +27,9 @@ fi
 # Set correct owner
 chown virtlyst:virtlyst -R /usr/local/var/virtlyst
 
+# Add the new lib paths to ld config
+cat << EOF > /etc/ld.so.conf.d/virtlyst.conf
+/usr/local/lib
+/usr/local/lib/x86_64-linux-gnu
+/usr/local/lib/cutelyst2-plugins
+EOF
