@@ -3,5 +3,4 @@ Version: 1.2.0
 Maintainer: schnuffle@github.com
 Architecture: amd64
 Description: virtlyst native extracted from a docker image
-Depends: libgrantlee-templates5 (>= 5.1.0-2), libpcre3, libicu60, libicu60, libdouble-conversion1, libc6, libglib2.0-0,
-         libgcc1, libqt5core5a, zlib1g, libstdc++6 
+Depends: libgrantlee-templates5 (>= 5.1.0-2), libpcre3, libicu60, libicu60, libdouble-conversion1,libc6, libglib2.0-0, libgcc1, libqt5core5a, zlib1g, libstdc++6
