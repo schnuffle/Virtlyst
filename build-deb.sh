@@ -10,8 +10,8 @@ distro_name=$(lsb_release -is)
 distro_version=$(lsb_release -rs)
 
 
-ubuntu_deps="Depends: libgrantlee-templates5 (>= 5.1.0-2), libpcre3, libicu60, libicu60, libdouble-conversion1,libc6, libglib2.0-0, libgcc1, libqt5core5a, zlib1g, libstdc++6"
-debian_deps="Depends: libgrantlee-templates5, libqt5core5a, libqt5network5, libqt5sql5, libqt5xml5, libvirt0"
+ubuntu_deps="Depends: libgrantlee-templates5 (>= 5.1.0-2), libpcre3, libicu60, libicu60, libdouble-conversion1,libc6, libglib2.0-0, libgcc1, libqt5core5a, zlib1g, libstdc++6  qemu-kvm libvirt-bin libvirt-clients bridge-utils"
+debian_deps="Depends: libgrantlee-templates5, libqt5core5a, libqt5network5, libqt5sql5, libqt5xml5, libvirt0 qemu-kvm libvirt-clients qemu-utils libvirt-daemon-system"
 
 echo "Distro: $distro_name"
 echo "Version: $distro_version"
