@@ -17,7 +17,7 @@ echo "Distro: $distro_name"
 echo "Version: $distro_version"
 
 case $distro_name in
-	LinuxMint|Ubuntu)
+	Linuxmint|Ubuntu)
 		sed -i "s/^Depends:.*/$ubuntu_deps/g" virtlyst-deb/DEBIAN/control
 		;;
 	Debian)
