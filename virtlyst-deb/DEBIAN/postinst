@@ -81,5 +81,4 @@ systemctl daemon-reload
 chown virtlyst:virtlyst -R /usr/local/var/virtlyst
 chown virtlyst:virtlyst /etc/virtlyst.conf
 chmod 770 /usr/local/var/virtlyst
->>>>>>> Added file to build debian package
 
