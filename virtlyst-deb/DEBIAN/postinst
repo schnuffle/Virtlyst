@@ -37,7 +37,6 @@ static-map = /static=/usr/local/var/virtlyst/root/static
 [Cutelyst]
 production = true
 DatabasePath = /usr/local/var/virtlyst/virtlyst.sqlite 
-               /usr/local/var/virtlyst/virt.sqlite
 TemplatePath = /usr/local/var/virtlyst/root/src
 
 [Rules]
