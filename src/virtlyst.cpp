@@ -50,6 +50,7 @@
 #include "server.h"
 #include "console.h"
 #include "create.h"
+#include "users.h"
 #include "root.h"
 #include "ws.h"
 
@@ -65,7 +66,7 @@ Virtlyst::Virtlyst(QObject *parent) : Application(parent)
 {
     QCoreApplication::setApplicationName(QStringLiteral("Virtlyst"));
     QCoreApplication::setOrganizationName(QStringLiteral("Cutelyst"));
-    QCoreApplication::setApplicationVersion(QStringLiteral("1.3.0"));
+    QCoreApplication::setApplicationVersion(QStringLiteral("2.0.0"));
 }
 
 Virtlyst::~Virtlyst()
@@ -87,6 +88,7 @@ bool Virtlyst::init()
     new Storages(this);
     new Console(this);
     new Create(this);
+    new Users(this);
     new Ws(this);
 
     bool production = config(QStringLiteral("production")).toBool();
@@ -341,7 +343,7 @@ bool Virtlyst::createDB()
         qCCritical(VIRTLYST) << "Error creating database" << query.lastError().text();
         return false;
     }
-    const QString password = QString::fromLatin1(QUuid::createUuid().toRfc4122().toHex());
+    const QString password = QStringLiteral("admin");
     query.bindValue(QStringLiteral(":password"), QString::fromLatin1(
                         CredentialPassword::createPassword(password.toUtf8(), QCryptographicHash::Sha256, 10000, 16, 16)));
     if (!query.exec()) {
