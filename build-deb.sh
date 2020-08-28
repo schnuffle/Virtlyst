@@ -4,7 +4,7 @@
 valid_distros=( "LinuxMint" "Ubuntu" "Debian" )
 mint_versions=( "18.0" "18.1" "19.0" "19.1" )
 ubuntu_versions=( "16.04" "18.04" )
-debian_versions=( "8" "9" )
+debian_versions=( "8" "9" "10" )
 
 #distro_name=$(lsb_release -is)
 #distro_version=$(lsb_release -rs)
