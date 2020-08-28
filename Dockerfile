@@ -5,7 +5,7 @@ ARG VIRTLYST_VERSION=v1.2.0
 
 RUN apt-get update \
     # Install build dependencies
-    && apt-get install -y git cmake g++ qtbase5-dev libgrantlee5-dev pkg-config libvirt-dev qttools5-dev-tools \
+    && apt-get install --no-install-recommends -y git cmake g++ qtbase5-dev libgrantlee5-dev pkg-config libvirt-dev qttools5-dev-tools \
     && cd /usr/local/src \
     # Build cutelyst
     && git clone https://github.com/cutelyst/cutelyst.git \
@@ -30,8 +30,9 @@ WORKDIR /usr/local/src/Virtlyst
 
 RUN apt-get update \
     # Install dependencies
-    && apt-get install -y libqt5core5a libqt5network5 libqt5sql5 libqt5xml5 libvirt0 libgrantlee-templates5 \
+    && apt-get install --no-install-recommends -y libqt5core5a libqt5network5 libqt5sql5 libqt5xml5 libvirt0 libgrantlee-templates5 \
     && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* \
     && cp /usr/local/src/Virtlyst/src/libVirtlyst.so /usr/local/lib/x86_64-linux-gnu/ \
     # Fix ld library path
     && echo "/usr/local/lib/x86_64-linux-gnu" > /etc/ld.so.conf.d/usr-local.conf \
