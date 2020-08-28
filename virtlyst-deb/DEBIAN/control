@@ -4,3 +4,4 @@ Maintainer: schnuffle@github.com
 Architecture: amd64
 Description: virtlyst native extracted from a docker image
 Depends: libgrantlee-templates5, libqt5core5a, libqt5network5, libqt5sql5, libqt5xml5, libvirt0, qemu-kvm, libvirt-clients, qemu-utils, libvirt-daemon-system
+

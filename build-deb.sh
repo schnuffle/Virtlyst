@@ -10,7 +10,7 @@ debian_versions=( "8" "9" "10" )
 #distro_version=$(lsb_release -rs)
 
 distro_name='Debian'
-distro_version='9'
+distro_version='10'
 
 
 ubuntu_deps="Depends: libgrantlee-templates5 (>= 5.1.0-2), libpcre3, libicu60, libicu60, libdouble-conversion1,libc6, libglib2.0-0, libgcc1, libqt5core5a, zlib1g, libstdc++6, qemu-kvm, libvirt-bin, libvirt-clients, bridge-utils"
@@ -50,7 +50,7 @@ cp -a ./tmp/local/bin virtlyst-deb/usr/local/
 cp -a ./tmp/local/man virtlyst-deb/usr/local/
 cp -a ./tmp/local/share virtlyst-deb/usr/local/
 cp -a ./tmp/local/src/Virtlyst/root virtlyst-deb/usr/local/var/virtlyst/
-cp -a ./tmp/local/src/Virtlyst/src/libVirtlyst.so  virtlyst-deb/usr/local/lib/
+cp -a ./tmp/local/src/Virtlyst/src/libVirtlyst.so  virtlyst-deb/usr/local/lib/x86_64-linux-gnu/
 rm -fR virtlyst-deb/usr/local/lib/x86_64-linux-gnu/pkgconfig
 rm -fR virtlyst-deb/usr/local/lib/x86_64-linux-gnu/cmake
 

@@ -32,8 +32,7 @@ RUN apt-get update \
     # Install dependencies
     && apt-get install -y libqt5core5a libqt5network5 libqt5sql5 libqt5xml5 libvirt0 libgrantlee-templates5 \
     && apt-get clean \
-    # Copy lib to correct path
-    && cp /usr/local/src/Virtlyst/src/Virtlyst*.so /usr/local/lib/x86_64-linux-gnu
+    && cp /usr/local/src/Virtlyst/src/libVirtlyst.so /usr/local/lib/x86_64-linux-gnu/ \
     # Fix ld library path
     && echo "/usr/local/lib/x86_64-linux-gnu" > /etc/ld.so.conf.d/usr-local.conf \
     && ldconfig \
