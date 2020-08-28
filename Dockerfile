@@ -5,7 +5,7 @@ ARG VIRTLYST_VERSION=v1.2.0
 
 RUN apt-get update \
     # Install build dependencies
-    && apt-get install -y git cmake g++ qtbase5-dev libgrantlee5-dev pkg-config libvirt-dev \
+    && apt-get install -y git cmake g++ qtbase5-dev libgrantlee5-dev pkg-config libvirt-dev qttools5-dev-tools \
     && cd /usr/local/src \
     # Build cutelyst
     && git clone https://github.com/cutelyst/cutelyst.git \
@@ -44,3 +44,4 @@ RUN apt-get update \
 
 VOLUME /data
 CMD ["/usr/local/bin/cutelyst-wsgi2","--ini","config.ini"]
+
